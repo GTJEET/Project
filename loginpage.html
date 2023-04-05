@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GammaStore | Login</title>
+<link rel="stylesheet" href="formvalid.css">
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="assets/css/style.css" rel="stylesheet">
+
+  <script>
+      // Defining a function to display error message
+      function printError(elemId, hintMsg) {
+          document.getElementById(elemId).innerHTML = hintMsg;
+      }
+
+      // Defining a function to validate form 
+      function validateForm() {
+          // Retrieving the values of form elements 
+          var email = document.contactForm.email.value;
+          var pass = document.contactForm.pass.value;
+
+          var emailErr = passErr = true;
+
+          if(pass == "")
+            {
+                printError("passErr", "Please Enter Your Password");
+            }
+            else {
+                    printError("passErr", "");
+                    passErr = false;
+                }
+            
+          if(email == "") 
+            {
+                printError("emailErr", "Please enter your email address");
+            } 
+          else {
+                // Regular expression for basic email validation
+                var regex = /^\S+@\S+\.\S+$/;
+                if(regex.test(email) === false) {
+                    printError("emailErr", "Please enter a valid email address");
+                } 
+                else
+                {
+                    printError("emailErr", "");
+                    emailErr = false;
+                }  
+            }
+
+            if (emailErr || passErr)
+            {
+                return false;
+            }
+          };
+  </script>
+</head>
+
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <h1 class="text-light"><a href="Gamma Store homepage.html"><span>GammaStore</span></a></h1>
+          </div>
+    
+          <nav id="navbar" class="navbar">
+    
+            <ul>
+              <li><a class="nav-link scrollto active" href="Gamma Store homepage.html#hero">Home</a></li>
+              <li><a class="nav-link scrollto" href="Gamma Store homepage.html#about">About Us</a></li>
+              
+              <li><a class="nav-link scrollto" href="Gamma Store homepage.html#portfolio">Browse Items</a></li>
+              
+              <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">Books</a></li>
+                  <li class="dropdown"><a href="#"><span>Electronics</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="#">Phones</a></li>
+                      <li><a href="#">Computers</a></li>
+                      <li><a href="#">Tablets</a></li>
+                      <li><a href="#">Accessories</a></li>
+                      <li><a href="#">TV and Appliances</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="Gamma Store homepage.html#portfolio"><span>Fashion</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="#">Men's Fashion</a></li>
+                      <li><a href="#">Women's Fashion</a></li>
+                      <li><a href="#">Kids' Fashion</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Home and Kitchen</a></li>
+                  <li><a href="#">Sports Equipments</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="Gamma Store homepage.html#contact">Contact</a></li>
+              <li style="padding-left: 30px;"><input type="text" id="search" placeholder="Search" style="border-radius: 25px; padding-left: 10px; height: 20px;border: 2px solid black;"></li>
+              <li><a class="getstarted scrollto" href="Sign Up.html" target= "_blank">Sign Up</a></li>
+              <li><img src="shop icon.png" alt="Cart" style="padding-left: 20px;"></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header><!-- End Header -->
+    
+<form name="contactForm" onsubmit="return validateForm()" method="post" style="padding-bottom: 15px;">
+    
+    <h3>Login</h3>
+     <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email" placeholder="Email">
+        <div class="error" id="emailErr"></div>
+    </div>
+  
+    <div class="row">
+        <label>Password</label>
+        <input type="password" id = "pass" placeholder="Password">
+        <div class="error" id="passErr"></div>
+    </div>
+    
+    <div class="row">
+        <input type="submit" id = "login" value="Login" style="background-color: #ef7f4d; box-shadow: none;">
+    </div>
+    <div style="padding-top: 3px;">
+        <p><center> New to GammaStore?<a href="Sign Up.html"><br><u>Sign Up</u></a></center></p>
+    </div>
+</form>
+</body>
+</html>
